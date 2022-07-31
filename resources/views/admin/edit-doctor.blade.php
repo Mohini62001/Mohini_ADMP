@@ -394,7 +394,7 @@
 															<?php
 															foreach($area_id_arr as $a)
 															{
-																if($data->id==$fetch->area)
+																if($a->id==$fetch->area)
 															 	{
 															?>
 															<option value="<?php echo $a->id;?>"selected>
