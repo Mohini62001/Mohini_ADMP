@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin_controller;
 use App\Http\Controllers\doctor_controller;
-use App\Http\Controllers\city_controller;
+use App\Http\Controllers\citie_controller;
 use App\Http\Controllers\specialist_controller;
 use App\Http\Controllers\state_controller;
+use App\Http\Controllers\companie_controller;
+use App\Http\Controllers\manager_controller;
+use App\Http\Controllers\mr_controller;
+use App\Http\Controllers\product_controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,19 +90,25 @@ Route::post('/edit/{id}',[doctor_controller::class,'update']);
 Route::get('/admin-doctor',[doctor_controller::class,'index']);
 Route::get('/admin-add-doctor',[doctor_controller::class,'create']);
 Route::post('/admin-add-doctor',[doctor_controller::class,'store']);
-Route::get('/admin-add-doctor/{id}',[specialist_controller::class,'destroy']); 
+Route::get('/admin-add-doctor/{id}',[doctor_controller::class,'destroy']); 
 Route::get('/admin-doctor-appointment', function (){return view('admin.doctor-appointment');});
 Route::get('/admin-doctor-cancel-appointment', function (){return view('admin.doctor-cancel-appointment');});
 
-Route::get('/admin-company', function (){return view('admin.company');});
-Route::get('/admin-edit-company', function (){return view('admin.edit-company');});
-Route::get('/admin-add-company', function (){return view('admin.add-company');});
+Route::get('/admin-add-company',[companie_controller::class,'create']);
+Route::post('/admin-add-company',[companie_controller::class,'store']);
+Route::get('/admin-company',[companie_controller::class,'index']);
+Route::get('/edit-company/{id}',[companie_controller::class,'edit']);
+Route::post('/edit-company/{id}',[companie_controller::class,'update']);
+Route::get('/admin-add-company/{id}',[companie_controller::class,'destroy']); 
 Route::get('/admin-company-appointment', function (){return view('admin.company-appointment');});
 Route::get('/admin-company-cancel-appointment', function (){return view('admin.company-cancel-appointment');});
 
-Route::get('/admin-manager', function (){return view('admin.manager');});
-Route::get('/admin-edit-manager', function (){return view('admin.edit-manager');});
-Route::get('/admin-add-manager', function (){return view('admin.add-manager');});
+Route::get('/admin-add-manager',[manager_controller::class,'create']);
+Route::post('/admin-add-manager',[manager_controller::class,'store']);
+Route::get('/admin-manager',[manager_controller::class,'index']);
+Route::get('/edit-manager/{id}',[manager_controller::class,'edit']);
+Route::post('/edit-manager/{id}',[manager_controller::class,'update']);
+Route::get('/admin-add-manager/{id}',[manager_controller::class,'destroy']); 
 Route::get('/admin-manager-appointment', function (){return view('admin.manager-appointment');});
 Route::get('/admin-manager-cancel-appointment', function (){return view('admin.manager-cancel-appointment');});
 

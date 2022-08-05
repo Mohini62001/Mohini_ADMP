@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('citys', function (Blueprint $table) {
-            $table->unsignedBigInteger('sid');
-			$table->foreign('sid')->references('id')->on('states')->after('id');
-            $table->string('city_name')->after('sid');
-            
-            
+        Schema::table('areas', function (Blueprint $table) {
+            $table->unsignedBigInteger('city_id');
+			$table->foreign('city_id')->references('id')->on('cities')->after('id');
+            $table->string('area_name')->after('city_id');
         });
     }
 
@@ -29,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('citys', function (Blueprint $table) {
+        Schema::table('areas', function (Blueprint $table) {
             //
         });
     }
